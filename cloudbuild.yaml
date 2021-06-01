@@ -3,6 +3,10 @@ steps:
   args: ['build', '-t', 'gcr.io/yasargcp/gcr.io/yasargcp/github.com/khanyasar/gcplearning:$COMMIT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/yasargcp/gcr.io/yasargcp/github.com/khanyasar/gcplearning:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'yasargcp', '--region=us-central1', '--platform=managed', '--image=gcr.io/yasargcp/gcr.io/yasargcp/github.com/khanyasar/gcplearning:$COMMIT_SHA']
+
+
  
 
 
